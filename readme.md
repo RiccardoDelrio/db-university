@@ -37,10 +37,18 @@ Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi
 - Email VARCHAR(150)
 
 # Studenti
-- CorsoID INT,
+- StudenteID INT PRIMARY KEY AUTO_INCREMENT,
+- Nome VARCHAR(100),
+- Cognome VARCHAR(100),
+- Email VARCHAR(150),
+- CorsoLaureaID INT,
+- FOREIGN KEY (CorsoLaureaID) REFERENCES CorsiLaurea(CorsoLaureaID)
+
+# Relazione Studenti-Insegnanti
+- StudenteID INT,
 - InsegnanteID INT,
-- PRIMARY KEY (CorsoID, InsegnanteID),
-- FOREIGN KEY (CorsoID) REFERENCES Corsi(CorsoID),
+- PRIMARY KEY (StudenteID, InsegnanteID),
+- FOREIGN KEY (StudenteID) REFERENCES Studenti(StudenteID),
 - FOREIGN KEY (InsegnanteID) REFERENCES Insegnanti(InsegnanteID)
 
 # Appelli d'Esame
@@ -49,12 +57,11 @@ Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi
 - Data DATE,
 - FOREIGN KEY (CorsoID) REFERENCES Corsi(CorsoID)
 
-
-# Iscrizioni agli Appelli (con voto)
+# Voti
+- IscrizioneID INT PRIMARY KEY AUTO_INCREMENT,
 - AppelloID INT,
 - StudenteID INT,
 - Voto INT, -- anche se non sufficiente
-- PRIMARY KEY (AppelloID, StudenteID),
 - FOREIGN KEY (AppelloID) REFERENCES Appelli(AppelloID),
 - FOREIGN KEY (StudenteID) REFERENCES Studenti(StudenteID)
 

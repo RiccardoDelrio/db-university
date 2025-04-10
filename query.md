@@ -42,3 +42,34 @@ WHERE period like "I semestre" AND year LIKE "1"
 
 SELECT * FROM db_university.exams
 WHERE hour > "14:00:00" AND date LIKE "2020-06-20";
+
+            3	28	14:43:05	SELECT * FROM db_university.exams
+            WHERE hour > "14:00:00" AND date LIKE "2020-06-20"
+            LIMIT 0, 1000	21 row(s) returned	0.000 sec / 0.000 sec
+
+
+6. Selezionare tutti i corsi di laurea magistrale (38)
+
+SELECT * FROM db_university.degrees
+WHERE level LIKE "magistrale";
+
+            3	38	14:50:09	SELECT * FROM db_university.degrees
+            WHERE level LIKE "magistrale"
+            LIMIT 0, 1000	38 row(s) returned	0.000 sec / 0.000 sec
+
+7. Da quanti dipartimenti è composta l'università? (12)
+
+SELECT name FROM db_university.departments;
+
+
+            3	47	15:01:17	SELECT name FROM db_university.departments
+            LIMIT 0, 1000	12 row(s) returned	0.000 sec / 0.000 sec
+
+8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+SELECT * FROM db_university.teachers
+WHERE phone  IS NULL;
+
+3	55	15:06:33	SELECT * FROM db_university.teachers
+ WHERE phone  IS NULL
+ LIMIT 0, 1000	50 row(s) returned	0.000 sec / 0.000 sec

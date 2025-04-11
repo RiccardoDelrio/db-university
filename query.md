@@ -59,7 +59,8 @@ WHERE level LIKE "magistrale";
 
 7. Da quanti dipartimenti è composta l'università? (12)
 
-SELECT name FROM db_university.departments;
+SELECT count(id) as total_departments
+FROM departments;
 
 
             3	47	15:01:17	SELECT name FROM db_university.departments
